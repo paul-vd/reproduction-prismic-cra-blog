@@ -4,6 +4,12 @@ import * as prismicH from "@prismicio/helpers";
 import { PostDate } from "./PostDate";
 import { FirstParagraph } from "./FirstParagraph";
 
+const fixPost = (post) => {
+  const clonedPost = { ...post };
+  clonedPost.url = post.url + ".html";
+  return clonedPost;
+};
+
 /**
  * Post list item component
  */
@@ -13,7 +19,10 @@ export const PostItem = ({ post }) => {
   return (
     <div className="blog-post">
       <PrismicLink document={post}>
-        <h2>{title}</h2>
+        <h2 style={{ color: "red" }}>❌ {title}</h2>
+      </PrismicLink>
+      <PrismicLink document={fixPost(post)}>
+        <h2 style={{ color: "green" }}>✅ {title}</h2>
       </PrismicLink>
 
       <PostDate date={post.data.date} />

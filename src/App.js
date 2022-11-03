@@ -23,7 +23,7 @@ export const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/preview" element={<Preview />} />
           <Route path="/blog" element={<Navigate to="/" />} />
-          <Route path="/blog/:uid" element={<Post />} />
+          <Route path="/blog/:uid/foo.html" element={<Post />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
